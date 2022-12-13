@@ -1,0 +1,539 @@
+@import "normalize.scss";
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/*------------------------------------------------*/
+/*-----------------LAYOUT-------------------------*/
+/*------------------------------------------------*/
+.full-page {
+    min-height: 100vh;
+    min-width: 175px;
+}
+
+/*------------------------------------------------*/
+/*-----------------PAGE.1: ASTRONAUT--------------*/
+/*------------------------------------------------*/
+.astronaut{
+    background-image: url(../img/astronaut.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    background-position: 50% 50%;
+}
+
+/*------------------------------------------------*/
+/*-----------------MENU---------------------------*/
+/*------------------------------------------------*/ 
+button {
+    position: fixed;
+    top: 35px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+button span {
+    display: block;
+    width: 27px;
+    height: 4px;
+    background-color: black;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
+
+input {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9;
+    width: 35px;
+    height: 35px;
+    opacity: 0;
+}
+
+button span:nth-child(2) {
+    position: relative;
+    right: 5px;
+    transition: left 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+input:hover + .menu button span:nth-child(2) {
+    left: 0px;
+}
+
+/*------------------------------------------------*/
+/*-----------------OPEN MENU----------------------*/
+/*------------------------------------------------*/
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255, 0.8);
+    z-index: 6;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    visibility: hidden;
+    font-family: 'Rubik', sans-serif;
+}
+
+input:checked + .menu nav {
+    visibility: visible;
+    opacity: 1;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    max-height: 95vh;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+    text-transform: uppercase;
+    a {
+        text-decoration: none;
+        z-index: 7;
+        color: black;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-shadow: 0.2px 2px rgb(184, 179, 179, 0.796);
+    }
+}
+
+/*------------------------------------------------*/
+/*--------------------- TO THE MOON---------------*/
+/*------------------------------------------------*/
+.astronaut .heading-box {
+    border: 2.5px solid black;
+    width: 5.2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    padding: 8px;
+    z-index: 1;
+    font-family: 'Rubik', sans-serif;
+}
+
+.astronaut .heading-box .text {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    margin-top: 2px;
+}
+
+.astronaut .heading-box .link {
+    font-size: 0.5rem;
+    font-weight: 400;
+    margin-bottom: -5px; 
+    .arrow {
+        font-family: 'Fira Code', monospace;
+    }
+}
+
+/*------------------------------------------------*/
+/*------------------ARROW DOWN--------------------*/
+/*------------------------------------------------*/
+.astronaut .arrow-down {
+    position: absolute;
+    bottom:5px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    animation-name: jumpingarrow;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count:infinite;
+    span {
+        font-family:'Fira Code', monospace;
+        font-weight: 400;
+        transform: rotate(90deg);
+        display: block;
+        font-size: 2rem;
+        color: rgb(255, 255, 255, 2);
+    }
+}
+
+@keyframes jumpingarrow {
+    from {bottom: 5px;}
+    to {bottom: 40px;}
+}
+
+/*------------------------------------------------*/
+/*------------------PAGE.2: STORY-----------------*/
+/*---------------------PART 1---------------------*/
+.part-1 {
+    max-width: 380px;
+    position: relative;
+}
+
+.story {
+    background-image: url(../img/space.jpg);
+    background-size: cover;
+}
+
+/*------------------------------------------------*/
+/*----------------H.2 SPACE VENTURES--------------*/
+/*------------------------------------------------*/
+h2 {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    span {
+        display: block;
+    }
+    .space {
+        position: relative;
+        z-index: 1;
+        color: white;
+        width: 100px;
+        margin: 0;
+        padding: 0;
+        font-family: 'Rubik', sans-serif;
+        font-size: clamp(1rem, 14.6vw, 3.1rem);
+        font-weight: 700;
+        text-shadow: 2px 2px 2px black;
+        top: 1.7vh;
+        left: 10px;
+    }
+    .ventures {
+        position: relative;
+        width: 150px;
+        margin: 0;
+        padding: 0;
+        z-index: 0;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        top: -5vh;
+        left: 55px;
+        opacity: 0.6;
+        font-size: clamp(1rem, 19vw, 4rem);
+    }
+}
+
+/*------------------------------------------------*/
+/*----------------ARTICLE GROUND------------------*/
+/*------------------------------------------------*/
+.ground {
+    color:rgb(255, 255, 255, 3);
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.45rem;
+    line-height: 12px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-top: -30px;
+    max-width: 380px; 
+    h3 {
+        font-size: 0.9rem; 
+    }
+}
+
+blockquote {
+    position: relative;
+    padding: 0;
+    padding-top: 5px;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    margin: 0;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    font-style: italic;
+    font-size: 0.6rem;
+    line-height: 15px;
+    z-index: 1;
+    &::before, &::after {
+        content: "\2033";
+        display: block;
+        position: absolute;
+        display: inline-block;
+        font-size: 5rem;
+        opacity: 0.4;
+        z-index: 1;
+    }
+    &::before {
+        top: 25px;
+        left: 0.5rem;
+    }
+    &::after {
+        bottom: -12px;
+        left: 11rem;
+    }
+}
+
+/*------------------------------------------------*/
+/*------------------PAGE.2: STORY-----------------*/
+/*---------------------PART 2---------------------*/
+.part-2 {
+    max-width: 380px;
+    position: relative;
+}
+
+.gradient-quote {
+    padding: 0;
+    margin: 0;
+}
+
+/*------------------------------------------------*/
+/*----------------ARTICLE CLEARFIX----------------*/
+/*------------------------------------------------*/
+.clearfix {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 5px;
+    color: rgb(255, 255, 255, 3);
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.45rem;
+    line-height: 12px;
+    .link {
+        color: rgb(209, 0, 161);
+        border-bottom: 1px solid rgb(209, 0, 161);
+    }
+    .link-arrow {
+        color: rgb(209, 0, 161);
+        font-size: 0.6rem;
+        font-weight: 400
+    }
+    .link-arrow {
+        position: relative;
+        left: 0;
+        transition: left 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        &:hover { 
+            left: 10px; 
+        }
+    }
+    .br-mobile {
+        &::before {
+            content: "\A";
+            white-space: pre;
+        }
+    }
+}
+
+/*------------------------------------------------*/
+/*----------------COOKIES-------------------------*/
+/*------------------------------------------------*/
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100vw;
+    height: 40px;
+    background-color: rgb(9, 9, 42);
+    font-family: 'Rubik', sans-serif;
+    z-index: 10;
+    
+    span:nth-of-type(1) {
+        display: flex;
+        flex-direction: column;
+        max-width: 70vw;
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+        color: rgb(209, 0, 161);
+        font-weight: 200;
+        font-size: 8px;
+        animation: glow;
+        text-shadow: 0 0 0.3px #fff, 0 0 0.4px #e60073, 0 0 0.5px #e60073, 0 0 0.6px #e60073, 0 0 0.7px #e60073, 0 0 0.8px #e60073;
+    }
+
+    span:nth-of-type(2) {
+        position: fixed;
+        right: 12px;
+        bottom: 10px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: white;
+        background-color: rgb(20, 20, 137);
+        padding: 6px;
+        &:hover {
+            animation: glow;
+            text-shadow: 0 0 0.5px #fff, 0 0 0.6px #fff, 0 0 0.7px #dbbaca, 0 0 0.8px #bd9bac, 0 0 0.9px #e60073, 0 0 1px #e60073;
+        }
+    }
+}
+
+/*------------------------------------------------*/
+/*----------------MOBILE--------------------------*/
+/*------------------------------------------------*/
+.gradient-quote {
+    display: none;
+}
+
+.major-tom {
+    display: none;
+}
+
+/*------------------------------------------------*/
+/*-----------------DESKTOPP-----------------------*/
+/*------------------------------------------------*/
+@media screen and (min-width: 800px) {
+    .full-page {
+        display: flex;
+        gap: 130px;
+        .part-1 {
+            padding-left: 80px;
+            margin: 0 auto;
+        }
+        .part-2 {
+            padding-right: 80px;
+            margin: 0 auto;
+        }
+    }
+ /*-----------PAGE.1 ASTRONAUT-------------*/
+    ul {
+        a {
+            font-size: 3rem;
+            text-shadow: 0.5px 3px rgb(184, 179, 179, 0.796);
+            &:hover {
+                border-bottom: solid 6px rgb(209, 0, 161);
+                border-radius: 1px;  
+            }
+        }  
+    } 
+            
+    .astronaut {
+        .heading-box {
+            width: 16rem;
+            left: 7vw;
+            top: 7vh;
+          .text {
+                font-size: 4.2rem;
+                margin-bottom: 40px;
+                margin-top: 35px;
+            }
+          .link {
+                text-align: right;
+                font-size: 0.7rem;
+                margin-right: 10px;
+                margin-bottom: 5px;
+           }  
+            .arrow {
+                position: relative;
+                left: 0;
+                transition: left 0.4s cubic-bezier(0.65, 0, 0.4, 1);
+                &:hover { 
+                    left: 20px; 
+                }
+            }
+        }
+        .arrow-down {
+            span {
+                font-size: 3.5rem;
+            }
+        }
+    }
+ /*------------------PAGE.2 STORY---------------*/ 
+   .story {
+        background-image: url(../img/space_rot.jpg);
+        background-size: cover;
+        background-position: 100vw;
+    }
+
+   .part-1, .part-2 {
+        width: 50%;     
+    }
+
+ /*---------------PART-1------------------------*/
+    h2 {
+        .space {
+            font-size: 3.5rem;
+            font-weight: 700;
+            top: 8vh;
+            left: 0.5px;  
+        }
+        .ventures {
+            font-size: 4.5rem;
+            top: -0.1vh;
+        }
+    }
+
+    .quote { 
+        width: 360px;
+        padding: 0;
+        left: 4rem;
+        padding-top: 30px;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 20px;
+        font-style: italic;
+        color: white;
+        &::before {
+            top: 40px;
+            left: -1rem;
+        }
+        &::after {
+            bottom: -15px;
+            left: 16rem;
+        }
+    }
+
+    .ground { 
+        font-size: 0.7rem;
+        line-height: 20px;
+        margin-top: 1vh;
+        padding-top: 30px;
+        width: 380px;
+    }
+
+ /*---------------PART-2------------------------*/
+    .gradient-quote {
+        position: relative;
+        display: block;
+        top: 13.2vh;
+        padding-bottom: 30px;
+        max-width: 280px;
+        font-family: 'Rubik', sans-serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1.7rem; 
+        line-height: 28px;
+        opacity: 0.35;
+        z-index: 1;
+        background: #D100A1;
+        background: linear-gradient(172deg, #D100A1 1%, #FFFFFF 50%, #D100A1 78%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .clearfix {
+        top:11.8vh;
+        font-size: 0.72rem;
+        line-height: 20px;
+        width: 380px;
+        .major-tom {
+            display: block;
+            width: 100px;
+            height: auto;
+            float:right;
+            right: 10px;
+            transform: rotate(3deg);
+        }
+        .br-mobile {
+            &::before {
+                content: none;
+            }
+        }
+    }
+    
+    footer {
+        span:nth-of-type(1) {
+            left: 20px;
+            bottom: 15px;
+            font-size: 10px;
+        }
+    }
+}

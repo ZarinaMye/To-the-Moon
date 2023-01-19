@@ -1,8 +1,9 @@
-# Inlämningsuppgift: To The Moon
-Se instruktioner för uppgiften på kurswebben.
+# School project - To the Moon
 
-I `assets`-mappen hittar du briefen från kunden (beskrivningen på vad du ska göra), information om designen, bilder till uppgiften och texter till uppgiften.
+First school project with the task of designing a website according to the customer's wishes using HTML and CSS.
+The requirement was that the page should be a one-pager and resemble the design from the images in the assets folder.
 
-I `screenshots`-mappen lägger du skärmdumpar på din sajt, när du är klar och har testat och färdigställt den så att den fungerar i alla webbläsare.
 
-I `validation-reports`-mappen lägger du PDF:er på dina valideringsrapporter på HTML och CSS.
+![TotheMoon_1](./img/TotheMoon_1.png)
+
+![TotheMoon_2](./img/TotheMoon_2.png)
